@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/font-awesome/all.min.css">
+  <link rel="stylesheet" href="../static/style.css">
+  <title>Task APP</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="app">
+      <header>
+        <nav>
+          <h2>TO-DO LIST</h2>
+          <i class="fa-solid fa-plus"></i>
+          <!-- <i class="fa-solid fa-square-plus"></i> -->
+        </nav>
+        <div class="addTask">
+          <input placeholder="Add New Todo" type="text" name="" id="add">
+          <button disabled>Add</button>
+        </div>
+      </header>
+
+      <section>
+        <ul class="tasks">
+          {% for task in tasks %}
+          <li class="task" data-id='{{task.id}}'>
+            <div class="">
+              {% if task.done %}
+              <input class="check" type="checkbox" name="" id="" checked>
+              <p class="done">{{task.body}}</p>
+              {%else%}
+              <input class="check" type="checkbox" name="" id="">
+              <p>{{task.body}}</p>
+              {% endif%}
+            </div>
+            <button class="remove"><i class="fa-solid fa-trash iremove"></i></button>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+
+  </div>
+  <!-- ************************ -->
+  <div style="display: none;" id="base">
+    <li class="task">
+      <div class="">
+        <input class="check" type="checkbox" name="" id="">
+        <p></p>
+      </div>
+      <button class="remove"><i class="fa-solid fa-trash iremove"></i></button>
+    </li>
+  </div>
+  <script src="../static/js/jquery-3.6.3.min.js"></script>
+  <script src="../static/js/main.js"></script>
+</body>
+
+</html>
